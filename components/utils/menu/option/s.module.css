@@ -1,0 +1,29 @@
+.option {
+  display: flex;
+  padding: calc(var(--size) * 2);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 56px;
+  border-radius: calc(var(--size) * 2);
+  height: 48px;
+  .icon {
+    svg {
+      width: 24px;
+      height: 24px;
+      path {
+        fill: var(--text);
+      }
+    }
+  }
+}
+.active {
+  background-color: var(--brand);
+  .icon {
+    svg {
+      path {
+        fill: var(--white);
+      }
+    }
+  }
+}

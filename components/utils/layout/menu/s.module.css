@@ -1,0 +1,52 @@
+.menu {
+  background-color: hsla(29, 3%, 94%, 0.6);
+  backdrop-filter: var(--blur);
+  border: 1px solid hsla(29, 3%, 95%, 0.6);
+  border-radius: calc(var(--size) * 6);
+  height: 100%;
+  width: 120px;
+  padding: calc(var(--size) * 4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.social {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--size) * 2) 0;
+  row-gap: calc(var(--size) * 2);
+  border-radius: calc(var(--size) * 4);
+  background-color: hsla(29, 3%, 94%, 0.9);
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+.theme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  padding: var(--size) calc(var(--size) * 2);
+  border-radius: calc(var(--size) * 2);
+  .variants {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .variant {
+     display: flex;
+    }
+  }
+}

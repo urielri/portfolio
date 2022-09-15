@@ -2,8 +2,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,14 +11,72 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "Oxygen", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 
+html {
+  --hue: 29;
+  --white: hsla(var(--hue), 3%, 98%, 1);
+  --black: hsla(var(--hue), 6%, 40%, 1);
+  --grey: hsla(var(--hue), 3%, 94%, 1);
+  --gr: linear-gradient(255.4deg, #f4df74 0%, #ef811a 100%);
+  --brand: hsla(var(--hue), 77%, 61%, 1);
+  --size: 6px;
+  --blur: blur(10px);
+  --s-light: hsla(var(--hue), 3%, 98%, 1);
+  --s-light2: hsla(var(--hue), 3%, 94%, 1);
+  --s-light3: hsla(var(--hue), 3%, 90%, 1);
+  --s-light4: hsla(var(--hue), 3%, 84%, 1);
+  --s-dark: hsla(var(--hue), 2%, 12%, 1);
+  --s-dark2: hsla(var(--hue), 2%, 16%, 1);
+  --s-dark3: hsla(var(--hue), 2%, 20%, 1);
+  --s-dark4: hsla(var(--hue), 2%, 24%, 1);
+  --primary: var(--black);
+  --text: var(--black);
+}
+:root {
+  --surface: var(--s-light);
+  --surface2: var(--s-light2);
+  --surface3: var(--s-light3);
+  --surface4: var(--s-light4);
+  --primary: var(--black);
+  --text: var(--black);
+}
 @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  :root {
+    --surface: var(--s-dark);
+    --surface2: var(--s-dark2);
+    --surface3: var(--s-dark3);
+    --surface4: var(--s-dark4);
+    --primary: var(--white);
+    --text: var(--white);
   }
-  body {
-    color: white;
-    background: black;
-  }
+}
+[color-scheme="light"] {
+  color-scheme: light;
+  --surface: var(--s-light);
+  --surface2: var(--s-light2);
+  --surface3: var(--s-light3);
+  --surface4: var(--s-light4);
+  --primary: var(--black);
+  --text: var(--black);
+}
+[color-scheme="dark"] {
+  color-scheme: dark;
+   --surface: var(--s-dark);
+    --surface2: var(--s-dark2);
+    --surface3: var(--s-dark3);
+    --surface4: var(--s-dark4);
+    --primary: var(--white);
+    --text: var(--white);
 }

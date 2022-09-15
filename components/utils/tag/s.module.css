@@ -1,0 +1,26 @@
+.tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  background-color: hsla(0, 0%, 84%, 0.4);
+  span {
+    color: var(--text);
+    font-weight: 400;
+  }
+}
+.s {
+  padding: 6px 10px;
+  border-radius: var(--size);
+  span {
+    font-size: calc(var(--size) * 2);
+  }
+}
+.m {
+  padding: 6px 12px;
+  border-radius: calc(var(--size) * 2);
+  span {
+    font-size: 16px;
+  }
+}
