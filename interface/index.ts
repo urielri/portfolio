@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
 import { ReactElement, ReactNode } from "react";
 
-export interface _LayoutType {
+export type _LayoutType<T> = NextPage<T> & {
   getLayout: (page: ReactElement) => ReactNode;
+
 }
 /*
 export interface _Project {
@@ -21,12 +22,6 @@ export interface _ProjectComplete extends _Project {
   resources: string[]
 }
 */
-
-export type Response<T> = {
-  data: T;
-  code: number;
-  status: string;
-};
 export interface _Media {
   color: string;
   alt: string;
@@ -56,6 +51,17 @@ export interface _Project {
   description: string;
   dates: _Dates;
 }
+export type Response<T> = {
+  data: T;
+  code: number;
+  status: string;
+  loading: boolean;
+};
 export interface _Handler {
   result: any;
+}
+export interface _Props<T> {
+fallback: T;
+loading: boolean;
+status: string;
 }

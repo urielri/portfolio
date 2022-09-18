@@ -1,23 +1,17 @@
 import { Case, Star, Fire } from "icons/interactive/status";
 import { useRouter } from "next/router";
-import { FC, useEffect } from "react";
+import { FC, useEffect, Suspense } from "react";
 import Option from "components/utils/menu/option";
 import s from "./s.module.css";
 import Card from "components/utils/card";
 import { Filter, Grid } from "icons/interactive";
 import useSWR from "swr";
-import { getProjects } from "service";
-
+import { _Props, _Project } from "interface";
+import { get, getProjects } from "service";
+import {ErrorFallback, ErrorBoundary} from "components/utils/error";
+import Project from "components/utils/project";
 export const Content: FC = () => {
- // const { data, error } = useSWR(getProjects());
-  useEffect(() => { 
-   // console.log({data, error})
-   async function q() {
-     const q = await getProjects().then((r) => { return r });
-     console.log(q)
-   }
-    q()
-  },[])
+
   return (
     <div className={s.home}>
       <div className={s.main}>
@@ -36,19 +30,25 @@ export const Content: FC = () => {
           </div>
         </div>
       </div>
-      <div className={s.list}>
-        <Card loading={true} view={"complete"} />
-        <Card loading={true} view={"complete"} />
-        <Card loading={true} view={"complete"} />
-        <Card loading={true} view={"complete"} />
-        <Card loading={true} view={"complete"} />
-        <Card loading={true} view={"complete"} />
-        <Card loading={true} view={"complete"} />
-      </div>
+    <ErrorBoundary fallback={<ErrorFallback error={'s'} resetErrorBoundary={() => console.log('aa')} />}>
+        <Suspense fallback={<h1>Cargando</h1>}>
+         <List/>
+        </Suspense>
+    </ErrorBoundary>
     </div>
   );
 };
-
+const List: FC = () => {
+  const { data } = useSWR('/projects', (e) => { return get<_Project[]>(e, 'project') }, {suspense: true});
+  //useEffect(() => { console.log("sss", data ) }, []);
+//      {data?.data.map((v: _Project) => <Project card={{ loading: false, view: "simple" }} data={v} key={v._id} />)}
+  return(
+    <div className={s.list}>
+      {data?.data?.map((v: _Project) => <Project card={{ loading: false, view: "simple" }} data={v} key={v._id} />)}
+    </div>
+  )
+}
+//<Card loading={false} data={v} key={v._id} view={"complete"}/>
 export const Options: FC = () => {
   const router = useRouter();
   return (

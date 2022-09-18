@@ -22,7 +22,7 @@ instance.interceptors.response.use((config: AxiosResponse) => {
   return data;
 });
 
-function adapter(data: any, typename: string): any {
+ function adapter(data: any, typename: string): any {
   if (data && typename !== "") {
     if (Array.isArray(data)) {
       const result = [];
@@ -39,38 +39,48 @@ function adapter(data: any, typename: string): any {
     return false;
   }
 }
-
-export async function getProject(slug: string): Promise<Response<_Handler>> {
+export async function get<T>(url: string, typename: string): Promise<Response<T >> {
+  try {
+    const q: Response<any> = await instance.get(url);
+    const res = handler<T>(q.status, q.code, q.data, typename);
+    return res
+  }catch (err:any) {
+ return Promise.reject(err);
+  }
+}
+export async function getProject(slug: string): Promise<Response<any>> {
   try {
     const q: Response<any> = await instance.get(`/project/${slug}`);
-    const res = handler(q.status, q.code, q.data, "project");
+    const res = handler<_Project>(q.status, q.code, q.data, "project");
     return res;
   } catch (err: any) {
     return Promise.reject();
   }
 }
 
-export async function getProjects(): Promise<Response<_Handler>> {
+export async function getProjects(): Promise<Response<any>> {
   try {
     const q: Response<any> = await instance.get(`/projects`);
-    const res = handler(q.status, q.code, q.data, "project");
+    const res = handler<_Project[]>(q.status, q.code, q.data, "project");
     return res;
   } catch (err: any) {
     return Promise.reject();
   }
 }
 
-function handler(
+async function handler<T>(
   status: string,
   code: number,
   data: any,
   typename: string
-): Response<_Handler> {
+): Promise<Response<T >> {
+  let loading = true;
   if (status === "ok") {
-    const adp = adapter(data, typename);
-    return { data: adp, code: code, status: status };
+    const adp = await adapter(data, typename);
+    adp && (loading = false);
+    return { data: adp, code: code, status: status, loading };
   } else {
-    return { data: { result: null }, code: 500, status: "error" };
+    return { data, code: 500, status: "error", loading };
   }
 }
 

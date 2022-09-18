@@ -10,6 +10,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin: calc(var(--size) * 8) 0 0 calc(var(--size) * 8);
+
 }
 .social {
   width: 100%;
