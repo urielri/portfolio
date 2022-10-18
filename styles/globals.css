@@ -22,27 +22,36 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
+      color: var(--text);
+
 }
 
 html {
-  --hue: 29;
-  --white: hsla(var(--hue), 3%, 98%, 1);
-  --black: hsla(var(--hue), 6%, 40%, 1);
-  --grey: hsla(var(--hue), 3%, 94%, 1);
+  --hue: 212;
+  --white: hsla(var(--hue), 2%, 98%, 1);
+  --white-b: hsla(var(--hue), 2%, 97%, 1);
+  --black: hsla(var(--hue), 4%, 18%, 1);
+  --black-b: hsla(var(--hue), 4%, 28%, 1);
+  --black-c: hsla(var(--hue), 4%, 48%, 1);
+  --white-c: hsla(212, 4%, 92%, 1);
+  --grey: hsla(var(--hue), 4%, 96%, 1);
+  --grey-b: hsla(var(--hue), 4%, 94%, 1);
+  --grey-c: hsla(var(--hue), 6%, 92%, 1);
   --gr: linear-gradient(255.4deg, #f4df74 0%, #ef811a 100%);
-  --brand: hsla(var(--hue), 77%, 61%, 1);
+  --brand: hsla(var(--hue), 80%, 62%, 1);
   --size: 6px;
   --blur: blur(10px);
-  --s-light: hsla(var(--hue), 3%, 98%, 1);
-  --s-light2: hsla(var(--hue), 3%, 94%, 1);
-  --s-light3: hsla(var(--hue), 3%, 90%, 1);
-  --s-light4: hsla(var(--hue), 3%, 84%, 1);
+  --s-light: hsla(var(--hue), 2%, 98%, 1);
+  --s-light2: hsla(var(--hue), 2%, 96%, 1);
+  --s-light3: hsla(var(--hue), 2%, 94%, 1);
+  --s-light4: hsla(var(--hue), 4%, 88%, 1);
   --s-dark: hsla(var(--hue), 2%, 12%, 1);
   --s-dark2: hsla(var(--hue), 2%, 16%, 1);
   --s-dark3: hsla(var(--hue), 2%, 20%, 1);
   --s-dark4: hsla(var(--hue), 2%, 24%, 1);
   --primary: var(--black);
   --text: var(--black);
+  --color-project: var(--grey);
 }
 :root {
   --surface: var(--s-light);
@@ -51,6 +60,7 @@ html {
   --surface4: var(--s-light4);
   --primary: var(--black);
   --text: var(--black);
+  --color-project: var(--grey);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -59,7 +69,7 @@ html {
     --surface3: var(--s-dark3);
     --surface4: var(--s-dark4);
     --primary: var(--white);
-    --text: var(--white);
+    --text: var(--white-c);
   }
 }
 [color-scheme="light"] {
@@ -73,10 +83,10 @@ html {
 }
 [color-scheme="dark"] {
   color-scheme: dark;
-   --surface: var(--s-dark);
-    --surface2: var(--s-dark2);
-    --surface3: var(--s-dark3);
-    --surface4: var(--s-dark4);
-    --primary: var(--white);
-    --text: var(--white);
+  --surface: var(--s-dark);
+  --surface2: var(--s-dark2);
+  --surface3: var(--s-dark3);
+  --surface4: var(--s-dark4);
+  --primary: var(--white);
+  --text: var(--white-c);
 }

@@ -1,5 +1,5 @@
 import { atom, atomFamily, selector, selectorFamily } from "recoil";
-import { _Project } from "interface";
+import { _Project, _Resource } from "interface";
 export const theme = atom<"os" | "light" | "dark">({
   key: "themeState",
   default: "os",
@@ -55,4 +55,38 @@ export const cardProjectFamily = selectorFamily({
       };
       return card;
     },
+});
+
+interface Meta {
+  title: string;
+}
+
+export const meta = atom<Meta>({
+  key: "metaState",
+  default: {
+    title: "",
+  },
+});
+export const newModal = atom<boolean>({
+  key: "newModalState",
+  default: false,
+});
+interface Route {
+  path: string;
+  route: string;
+  name: string;
+}
+export const route = atom<Route>({
+  key: "pathState",
+  default: {
+    path: "",
+    route: "",
+    name: "",
+  },
+});
+export const section = atom<string>({ key: "sectionState", default: "" });
+
+export const resource = atomFamily<_Resource | null, string>({
+  key: "resourceState",
+  default: null,
 });

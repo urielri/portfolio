@@ -27,7 +27,11 @@ export interface _Media {
   alt: string;
   link: string;
 }
+export interface _Slugs {
+  slug: string;
+}
  export interface _Resource {
+  _id?: string;
   icon: _Media;
   link: string;
   name: string;
@@ -64,4 +68,5 @@ export interface _Props<T> {
 fallback: T;
 loading: boolean;
 status: string;
+slug?: string;
 }

@@ -1,0 +1,128 @@
+.project {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 300px auto;
+  padding: calc(var(--size) * 8);
+  padding-left: 0;
+  row-gap: calc(var(--size) * 8);
+}
+
+.hero {
+  height: 300px;
+  width: 100%;
+  background-color: var(--grey);
+  border-radius: calc(var(--size) * 4);
+  display: grid;
+  place-items: center;
+  .presentation {
+    display: grid;
+    column-gap: calc(var(--size) * 4);
+    grid-template-columns: 180px minmax(200px, auto);
+    align-items: center;
+    width: auto;
+    height: auto;
+    h1 {
+      font-size: calc(var(--size) * 8 * 2);
+      color: var(--white);
+    }
+    svg {
+      height: 180px;
+      width: 180px;
+    }
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 330px;
+  column-gap: calc(var(--size) * 8);
+  width: 100%;
+  height: 100%;
+}
+.body {
+  width: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--size) * 4);
+  .extras {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: min-content;
+    .date {
+      display: flex;
+      column-gap: var(--size);
+      align-items: center;
+      .time {
+        font-size: 16px;
+        color: var(--text);
+      }
+    }
+    .link {
+      width: fit-content;
+      max-width: 300px;
+      display: flex;
+      align-items: center;
+      a {
+        display: flex;
+        align-items: center;
+        column-gap: var(--size);
+      }
+      span {
+        color: var(--text);
+        text-decoration: underline;
+        font-size: 16px;
+      }
+    }
+  }
+  .description {
+    h1 {
+      font-weight: 500;
+      color: var(--text);
+      font-size: 28px;
+    }
+    p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+.moreInfo {
+  background-color: var(--grey);
+  height: 100%;
+  width: 330px;
+  border-radius: calc(var(--size) * 4);
+  padding: calc(var(--size) * 4);
+  display: flex;
+  flex-direction: column;
+  row-gap: calc(var(--size) * 4);
+  .row {
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--size) * 4);
+    h3 {
+      color: var(--text);
+      font-size:calc(--var(--size) * 3) ;
+      font-weight: 500;
+    }
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: calc(var(--size) * 2);
+    }
+  }
+}
+.tagActive {
+  width: min-content;
+  height: auto;
+  padding: 6px 12px;
+  background-color: #27bc1a;
+  border-radius: calc(var(--size) * 2);
+  span {
+    color: var(--white);
+  }
+}

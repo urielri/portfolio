@@ -20,7 +20,6 @@ const Layout: FC<Props> = ({ children, menu }) => {
           : "dark"
         : "os";
         const doc = document.firstElementChild;
-      console.log(doc);
       doc && doc.setAttribute("color-scheme", theme);
      // localStorage.setItem("theme", theme);
       setTheme(theme);

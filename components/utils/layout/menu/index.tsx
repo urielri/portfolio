@@ -39,7 +39,7 @@ const Menu: FC<Props> = ({ children }) => {
         .to(q("#toggle"), { duration: 0.1, rotate: -45 })
         .to(themeRef.current, {
           duration: 0.1,
-          background: "var(--grey)",
+          background: "var(--surface3)",
           position: "static",
         })
         .to(q("#variants"), { duration: 0.1, height: 88, rowGap: "12px" });
@@ -83,7 +83,9 @@ const Menu: FC<Props> = ({ children }) => {
           action={() => console.log("redirect")}
           icon={<Dribbble />}
         />
-        <Arrow />
+        <div className={s.arrow}>
+          <Arrow />
+        </div>
       </div>
       <div className={s.theme} ref={themeRef} id="box">
         <div className={s.variants} id="variants">
@@ -102,7 +104,6 @@ const Menu: FC<Props> = ({ children }) => {
               id="dark"
               onClick={() => changeTheme("dark")}
             >
-              {" "}
               <Moon />
             </div>
           )}

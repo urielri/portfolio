@@ -1,7 +1,6 @@
 .menu {
-  background-color: hsla(29, 3%, 94%, 0.6);
+  background-color: var(--surface2);
   backdrop-filter: var(--blur);
-  border: 1px solid hsla(29, 3%, 95%, 0.6);
   border-radius: calc(var(--size) * 6);
   height: calc(100% - 96px);
   width: 120px;
@@ -11,7 +10,6 @@
   align-items: center;
   justify-content: space-between;
   margin: calc(var(--size) * 8) 0 0 calc(var(--size) * 8);
-
 }
 .social {
   width: 100%;
@@ -21,7 +19,14 @@
   padding: calc(var(--size) * 2) 0;
   row-gap: calc(var(--size) * 2);
   border-radius: calc(var(--size) * 4);
-  background-color: hsla(29, 3%, 94%, 0.9);
+  background-color: var(--surface2);
+  .arrow {
+    svg {
+      path {
+        stroke: var(--text);
+      }
+    }
+  }
 }
 .options {
   display: flex;
@@ -35,9 +40,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: var(--surface2);
   position: relative;
   width: 100%;
   padding: var(--size) calc(var(--size) * 2);
+  svg {
+    path {
+      fill: var(--text);
+    }
+  }
   border-radius: calc(var(--size) * 2);
   .variants {
     position: relative;
@@ -48,7 +59,7 @@
     align-items: center;
     justify-content: center;
     .variant {
-     display: flex;
+      display: flex;
     }
   }
 }

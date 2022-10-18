@@ -18,7 +18,7 @@
   }
 }
 .active {
-  background-color: var(--brand);
+  background-color: var(--black-b);
   .icon {
     svg {
       path {

@@ -1,0 +1,23 @@
+.sk {
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+.animation {
+  background: linear-gradient(
+    90deg,
+    rgba(232, 232, 232, 0.04) 0%,
+    rgba(255, 255, 255, 0.04) 0.01%,
+    #e9e9e9 39.24%,
+    rgba(232, 232, 232, 0.726951) 64.05%,
+    rgba(232, 232, 232, 0.04) 100%
+  );
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  left: 0;
+  filter: blur(4px);
+}
+.loaded {
+    position: relative;
+}

@@ -5,7 +5,8 @@
   height: 100%;
   row-gap: calc(var(--size) * 8);
   overflow-y: scroll;
-  padding-top: calc(var(--size) * 8);
+  padding: calc(var(--size) * 8) calc(var(--size) * 8) calc(var(--size) * 8)  0;
+
 }
 .main {
   display: flex;

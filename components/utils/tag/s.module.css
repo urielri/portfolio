@@ -4,7 +4,7 @@
   align-items: center;
   width: fit-content;
   height: fit-content;
-  background-color: hsla(0, 0%, 84%, 0.4);
+  background-color: var(--surface3);
   span {
     color: var(--text);
     font-weight: 400;
@@ -23,4 +23,9 @@
   span {
     font-size: 16px;
   }
+}
+@media (prefers-color-scheme: dark) {
+ .tag {
+  background-color: var(--surface4);
+ }
 }

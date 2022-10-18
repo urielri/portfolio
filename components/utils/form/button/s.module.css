@@ -1,0 +1,22 @@
+.button {
+  background-color: var(--black);
+  height: auto;
+  width: fit-content;
+  padding: 6px 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.2s ease-out;
+  button {
+    border: none;
+    cursor: pointer;
+    background: none;
+    width: 100%;
+    heigth: 100%;
+    font-size: 16px;
+    color: var(--white);
+    font-weight: 400;
+  }
+  &:hover {
+    border-radius: 12px;
+  }
+}
